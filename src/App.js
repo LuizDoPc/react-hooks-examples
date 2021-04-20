@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import AppState from './AppState';
+import AppReducer from './AppReducer';
+import AppRefs from './AppRefs';
+import AppCustomHook from './AppCustomHook';
+import AppImperative from './AppImperative';
+
+const App = () => {
+    const [currentPage, setCurrentPage] = useState(0);
+
+    return (
+        <>
+        <button onClick={()=> setCurrentPage(0)}>state/effect</button>
+        <button onClick={()=> setCurrentPage(1)}>reducer</button>
+        <button onClick={() => setCurrentPage(2)}>refs</button>
+        <button onClick={() => setCurrentPage(3)}>refs w/ custom hook</button>
+        <button onClick={() => setCurrentPage(4)}>imperative + refs</button>
+        <br />
+        <br />
+        {currentPage === 0 && <AppState parametros={{}} />}
+        {currentPage === 1 && <AppReducer />}
+        {currentPage === 2 && <AppRefs />}
+        {currentPage === 3 && <AppCustomHook />}
+        {currentPage === 4 && <AppImperative />}
+    </>
+    )
 }
 
-export default App;
+export default App
