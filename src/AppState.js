@@ -47,6 +47,10 @@ function App(
 
 
 
+  // useEffect(() => {
+  //   console.log('%copa 🗻', consoleStyles[1]);
+  // });
+
   useEffect(() => {
     console.log('%ccomponent did mount 🗻', consoleStyles[1]);
 
